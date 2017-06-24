@@ -130,6 +130,7 @@ body{
 	color: $header-color;
 	text-align: center;
   padding-top: 50px;
+  overflow: hidden;
 	h1{
 		font-family:$header-font;
 		font-size: $header-font-size;
@@ -142,16 +143,9 @@ body{
 	p{
 		padding-bottom:319px; 
     font-size: $main-font-size;
-    animation-name: cafe;
-    animation-duration: 2s;
-    animation-delay: 1s;
-	}
+    }
 }
-@keyframes cafe{
-    0%   {color: $header-color;}
-    50%  {color: #19bd9a;}
-    100% {color: $header-color;}
-}
+
 .animated.fadeInDown{
     animation-duration: 2s;
     animation-delay: 1s;
@@ -394,7 +388,7 @@ body{
     padding-bottom: 20px;
     }
     .social-icon{
-    padding-bottom: 65px;
+     padding-bottom: 65px;
       span{
         color: $header-color;
         font-size: 14px;
@@ -439,19 +433,17 @@ body{
       background: #ffffff;
       border: 1px solid #000;
       position: absolute;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.5s ease;
+      z-index: -2;
+      opacity: 0;      
       .icon-bars{
-        font-size: 20px;
+      font-size: 20px;
       }
 }
 
 // madia
 @media (max-width: 1100px){
   .bo-header__nav{
-    width: 60%;
-    margin-left: 20%;
+      max-width: 100%;
   }
   .portfolio-info p{
       padding: 15px 0;
@@ -467,7 +459,7 @@ body{
       padding: 10px 0 15px;
   }
   .slick-dots {
-     margin: 20px 0;
+      margin: 20px 0;
   }
   .bo-team .slide__text{
       width: 50%;
@@ -479,48 +471,48 @@ body{
       line-height: 1.5;
   }
   .bo-team.slade__img--create{
-    width: 30%;
-    margin-left: 0;
+      width: 30%;
+      margin-left: 0;
   }
   .bo-team .slide__text .slide__text--title{
-    padding-bottom: 5px;
+      padding-bottom: 5px;
   }
   .bo-team-slider:after{
-    display: none;
+      display: none;
   }
   .bo-team .slick-dots {
-    margin-bottom: 0;
+      margin-bottom: 0;
   }
   .bo-testimonials-info{
-    width: 100%;
-    margin: 0;
-    padding-bottom: 10px;
+      width: 100%;
+      margin: 0;
+      padding-bottom: 10px;
   }
   .bo-testimonials-info h2{
-    padding-bottom: 10px;
+      padding-bottom: 10px;
   }
   .bo-testimonials .slade__img{
-    padding-top: 15px;
-    width: 25%;
-    margin-left: 0;
+      padding-top: 15px;
+      width: 25%;
+      margin-left: 0;
  }
   .slider--bg{
-    padding: 20px;
+      padding: 20px;
   }
   .bo-contact-info h2 {
-    padding: 25px 0 10px;
+      padding: 25px 0 10px;
   }
   .bo-contact-info p {
-    padding: 0 0 20px;
+      padding: 0 0 20px;
   }
   .bo-bouncy {
-    padding-top: 0;
+      padding-top: 0;
   }
   .bo-bouncy .logoblack img {
-    padding: 20px 0 10px; 
+      padding: 20px 0 10px; 
   }
   .bo-bouncy .social-icon {
-    padding-bottom: 35px;
+      padding-bottom: 35px;
   }
 }
 
@@ -529,14 +521,14 @@ body{
     padding: 30px 50px;
   }
   #bo-header-show-menu{
-    position: relative;
-    z-index: 1;
+    position: relative;    
     border-radius: 9px;
     background: #f5f5f5;
     width: 40px;
     height: 40px;
     outline: none;
     opacity: .5;
+    z-index: 1;
     transition: opacity 0.6s ease;
   }
 
@@ -557,6 +549,7 @@ body{
 
   .bo-header .bo-header__nav li a{
     padding: .5rem;
+    opacity: .8;
   }
   .bo-header .bo-header__nav li a:hover{
     border: 1px solid transparent; 
@@ -565,14 +558,10 @@ body{
   #bo-header-show-menu.open + .bo-header__nav{
     transform: translateY(0%);      
     z-index: 1;
-    border-radius: .7rem;     
+    border-radius: .7rem;
+    transition: transform 2s ease;     
   }
-  .bo-header__nav.animation{
-    transition: transform 2s ease;
-     a{
-        opacity: .8;
-     }
-  }
+  
   .animated.fadeInDown{
     animation-duration: 0s;
  }  
