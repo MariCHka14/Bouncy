@@ -107,7 +107,7 @@ body{
     float: right;
     list-style: none; 
     li{
-    float: right;    
+    float: left;    
     font-size: $main-font-size;
     font-weight: $font-weight;
     margin-left: 10px;
@@ -129,6 +129,7 @@ body{
 .bo-hello__info{
 	color: $header-color;
 	text-align: center;
+  padding-top: 50px;
 	h1{
 		font-family:$header-font;
 		font-size: $header-font-size;
