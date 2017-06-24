@@ -6,11 +6,11 @@
 
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?49x0f');
-  src:  url('../fonts/icomoon.eot?49x0f#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?49x0f') format('truetype'),
-    url('../fonts/icomoon.woff?49x0f') format('woff'),
-    url('../fonts/icomoon.svg?49x0f#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?hzpry5');
+  src:  url('../fonts/icomoon.eot?hzpry5#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?hzpry5') format('truetype'),
+    url('../fonts/icomoon.woff?hzpry5') format('woff'),
+    url('../fonts/icomoon.svg?hzpry5#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -30,10 +30,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-angle-down:before {
-  content: "\f107";
+.icon-bars:before {
+  content: "\e900";
 }
-.icon-facebook2:before {
+.icon-navicon:before {
+  content: "\e900";
+}
+.icon-reorder:before {
+  content: "\e900";
+}
+.icon-chevron-down:before {
+  content: "\e901";
+}
+.icon-facebook:before {
   content: "\ea90";
 }
 .icon-instagram:before {
@@ -49,6 +58,7 @@
   content: "\eaca";
 }
 
+
 *, *:after, *:before{
 	@include box-sizing;
 }
@@ -59,6 +69,7 @@ body{
   font-size: $font-size;
 }
 
+// section bo-hello 
 .title{
     font-family: $header-font;
     text-transform: uppercase;
@@ -72,17 +83,21 @@ body{
     text-align: center;
 }
 
-.bo-hello{
-    position: relative;    
+.bo-hello{    
     background: #f9f8fb url(../img/bd_first.png) center center no-repeat;
     background-size: cover;  
     -webkit-background-size: cover;           
        -moz-background-size: cover;          
-         -o-background-size: cover;        
+         -o-background-size: cover; 
+    padding-bottom: 77px;       
 }
 
 .bo-header{
 	padding-top: 30px;
+  position: fixed;
+  max-width: 100%;
+  z-index: 10;
+  padding: 30px 75px;
   .logo{
   margin-top: 20px;
   }
@@ -92,7 +107,7 @@ body{
     float: right;
     list-style: none; 
     li{
-    float: left;    
+    float: right;    
     font-size: $main-font-size;
     font-weight: $font-weight;
     margin-left: 10px;
@@ -127,7 +142,7 @@ body{
 		padding-bottom:319px; 
     font-size: $main-font-size;
     animation-name: cafe;
-    animation-duration: 5s;
+    animation-duration: 2s;
     animation-delay: 1s;
 	}
 }
@@ -137,39 +152,42 @@ body{
     100% {color: $header-color;}
 }
 .animated.fadeInDown{
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-delay: 1s;
     animation-timing-function: linear;
 }
 
 .bo-hello__link{
-      position: absolute;
-      background-color:  #19bd9a;
-      border-radius: 50%;
-      left: 50%;
-      bottom: 77px; 		
-    	width: 36px;
-    	height: 36px;    
+    background-color: #19bd9a;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;    
+    margin: auto;
+    text-align: center;            
     a{
       text-decoration: none;
+      display: inline-block;
     }
     &:hover, &:focus{
       border: 1px solid $header-color;
       cursor: pointer;
     	opacity: 0.7;
-      transform: translateY(15%);
+      transform: translateY(10%);
       @include transition (all, 0.5s, ease);
     }
-    .icon-angle-down{
+    .icon-chevron-down{
       color: $header-color;
-      font-size: $title-font-size;
+      font-size: $title-font-size;      
       font-weight: 700;
-      position: absolute;
-      top: 25%;
-      left: 30%;
-      }   	
+      padding: 5px 6px;      
+      display: inline-block;  
+      } 
+    .icon-chevron-down:before {
+      vertical-align: middle;
+    }    	
   }
 
+// section bo-portfolio 
 .bo-portfolio{
       background: $main-color-bg;
       padding: 70px 0 100px;
@@ -219,17 +237,10 @@ body{
 .grid-item-size,
 .grid-item { 
     width: 23.7%; 
-    margin-bottom: 10px;
-    transform: translateY(200%);
-    opacity: 0;
-    transition: transform 2s ease, opacity 2.5s ease;
+    margin-bottom: 10px;    
 }
 
-.grid-item.show{
-    transform: translateY(0);
-    opacity: 1;
-  }
-
+// section bo-team 
 .bo-team-info{
     padding: 55px;
     color: $font-color;
@@ -279,23 +290,25 @@ body{
     margin: 4px;
     width: 8px;
     height: 8px;
-    color: transparent;
     border-radius: 50%;
 }
 .slick-dots li button:before{
     color: transparent;
 }
 .slick-dots li.slick-active button:before{
-    color: transparent;
+    color: #19bd9a;    
 }
-.slick-dots li button:hover,
-.slick-dots li button:active,
-.slick-dots li button:focus{
+.slick-dots li.slick-active button{
+    color: #19bd9a;
     background: #19bd9a; 
 }
 
 .bo-team .full-container{
     background: url(../img/team_bg.png) no-repeat center center;
+    background-size: cover;  
+    -webkit-background-size: cover;           
+       -moz-background-size: cover;          
+         -o-background-size: cover;
     height: 205px;
     margin-top: 110px;
 }
@@ -322,20 +335,21 @@ body{
     @include a-hover($header-color,$team-color-bg);    
   }
 }
+// section bo-testimonials 
 .bo-testimonials{
     background: #e2dede;
     padding: 50px 90px;
-      h3{
-        color:  #19bd9a;
-        font-weight: 700;
-        margin: 10px 0;
-      }
-      p:first-child{
-        font-size: $main-font-size;
-        line-height: 2;
-        padding-bottom: 30px 0;
-      }
+    h3{
+      color:  #19bd9a;
+      font-weight: 700;
+      margin: 10px 0;
     }
+    p:first-child{
+      font-size: $main-font-size;
+      line-height: 2;
+      padding-bottom: 30px 0;
+    }
+}
 
 .slider--bg{
     background: $header-color;
@@ -353,6 +367,7 @@ body{
     margin-bottom: 30px;
 }
 
+// section bo-contact
 .bo-contact-info{
   h2{
     padding: 85px 0 20px;
@@ -365,6 +380,7 @@ body{
    min-height: 440px;
 }
 
+// section bo-bouncy
 .bo-bouncy{
     padding-top: 40px;
     text-align: center;
@@ -388,7 +404,7 @@ body{
   }
 }
 .social-icon a{
-   .icon-facebook2{
+   .icon-facebook{
     background: #3b5998;
    }
    .icon-twitter{
@@ -416,6 +432,7 @@ body{
       }    
   } 
 
+// responsive menu
 #bo-header-show-menu{
       float: right;
       background: #ffffff;
@@ -424,56 +441,16 @@ body{
       z-index: -1;
       opacity: 0;
       transition: opacity 0.5s ease;
-      .icon-angle-down{
-        font-size: 35px;
+      .icon-bars{
+        font-size: 20px;
       }
 }
 
-@media (max-width: 1250px){
-  #bo-header-show-menu{
-      position: relative;
-      z-index: 1;
-      border-radius: 9px;
-      background: #f5f5f5;
-      width: 40px;
-      height: 40px;
-      outline: none;
-      opacity: .5;
-      transition: opacity 0.6s ease;
-  }
-
-  .bo-header .bo-header__nav{
-      transform: translateY(-100%);
-      position: absolute;
-      width: auto;
-      top: 55px;
-      right:0;
-      z-index: -1;
-      background: rgba(0, 0, 0, 0.2);       
-  }
-
-  .bo-header .bo-header__nav li{
-      float: none;
-      padding: 10px;
-  }
-
-  .bo-header .bo-header__nav li a{
-      padding: .5rem;
-  }
-  .bo-header .bo-header__nav li a:hover{
-      border: 1px solid transparent; 
-  }
-
-  #bo-header-show-menu.open + .bo-header__nav{
-      transform: translateY(0%);      
-      z-index: 1;
-      border-radius: .7rem;     
-  }
-  .bo-header__nav.animation{
-     transition: transform 2s ease;
-     a{
-        opacity: .8;
-     }
+// madia
+@media (max-width: 1100px){
+  .bo-header__nav{
+    width: 60%;
+    margin-left: 20%;
   }
   .portfolio-info p{
       padding: 15px 0;
@@ -547,6 +524,60 @@ body{
 }
 
 @media (max-width: 880px){
+  .bo-header{
+    padding: 30px 50px;
+  }
+  #bo-header-show-menu{
+    position: relative;
+    z-index: 1;
+    border-radius: 9px;
+    background: #f5f5f5;
+    width: 40px;
+    height: 40px;
+    outline: none;
+    opacity: .5;
+    transition: opacity 0.6s ease;
+  }
+
+  .bo-header .bo-header__nav{
+    transform: translateY(-200%);
+    position: absolute;
+    width: auto;
+    top: 55px;
+    right:55px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.2);       
+  }
+
+  .bo-header .bo-header__nav li{
+    float: none;
+    padding: 10px;
+  }
+
+  .bo-header .bo-header__nav li a{
+    padding: .5rem;
+  }
+  .bo-header .bo-header__nav li a:hover{
+    border: 1px solid transparent; 
+  }
+
+  #bo-header-show-menu.open + .bo-header__nav{
+    transform: translateY(0%);      
+    z-index: 1;
+    border-radius: .7rem;     
+  }
+  .bo-header__nav.animation{
+    transition: transform 2s ease;
+     a{
+        opacity: .8;
+     }
+  }
+  .animated.fadeInDown{
+    animation-duration: 0s;
+ }  
+ .bo-hello__info p{
+    animation-duration: 0s;
+ }
   .bo-hello__info,
   .portfolio-info,
   .bo-team-info,
@@ -554,9 +585,6 @@ body{
   .bo-bouncy{
     width: 100%;
     margin: auto;
-  }
-  .bo-hello__info h1{
-    padding: 80px 70px 10px;
   }
   .bo-hello__info p{
     padding-bottom: 120px;
@@ -615,12 +643,15 @@ body{
     clear: both;
   }
   .bo-bouncy .social-icon span{
-    font-size: 30px;
-    padding: 9px;
+    font-size: 25px;
+    padding: 7px;
   }
 }
 
 @media (max-width: 550px){
+  .bo-header{
+    padding: 20px 25px;
+  }
   .bo-hello__info h1{
     padding: 100px 0 10px;
     word-spacing: 3px;
@@ -628,12 +659,16 @@ body{
   .bo-hello__info p{
     padding-bottom: 30px;
   }
+  .bo-header .bo-header__nav{
+    top: 45px;
+    right: 15px;
+  }
   .bo-header .bo-header__nav li{
-    padding: 5px 0;
+    padding: 15px 0;
     text-align: right;
   }
   .bo-header .bo-header__nav li a{
-    padding: 0 5px;
+    padding: 10px;
   }
   .bo-hello__info p{
     padding-bottom: 60px;
@@ -670,6 +705,9 @@ body{
   .slide__text{
     width: 100%;
   }
+  .bo-bouncy p{
+    float: none;
+  }
 }
 
 @media (max-width: 450px){
@@ -679,9 +717,5 @@ body{
   .bo-bouncy .logoblack img{
     margin: auto;
     float: none;
-  }
-  .bo-bouncy .social-icon span{
-    font-size: 30px;
-    padding: 7px;
   }
 }
